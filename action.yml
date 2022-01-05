@@ -1,13 +1,19 @@
 name: 'Wait'
 description: 'Wait a designated number of milliseconds'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  token:
+    description: GitHub personal access token
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+  prefix:
+    description: URL path prefix to rewrite
+    required: false
+    default: ""
+  server:
+    description: GitHub server name, if not using hosted
+    required: false
+    default: ""
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  # pre: 'dist/index.js'
+  main: 'dist/main/index.js'
+  post: 'dist/post/index.js'
