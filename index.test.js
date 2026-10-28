@@ -19,12 +19,20 @@ describe('run', () => {
     })
 
     it("works when we have a token", () => {
+        const os = require('os')
+        const fs = require('fs')
+        const path = require('path')
+        // @actions/core >= 1.10 writes save-state entries to the GITHUB_STATE file
+        const stateFile = path.join(os.tmpdir(), `test_state_git_config_section_${process.pid}`)
+        fs.writeFileSync(stateFile, '')
         process.env['INPUT_TOKEN'] = TOKEN
         process.env['INPUT_SERVER'] = SERVER
+        process.env['GITHUB_STATE'] = stateFile
         return runIndex()
             .then(proc => {
                 expect(proc.stderr.toString()).toBe('')
-                expect(proc.stdout.toString()).toMatch(/::save-state name=git_config_section::/)
+                const state = fs.readFileSync(stateFile, 'utf8')
+                expect(state).toMatch(/^git_config_section<</)
             })
     })
 
