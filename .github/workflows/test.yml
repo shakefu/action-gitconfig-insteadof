@@ -11,7 +11,7 @@ jobs:
   unit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - run: npm ci
     - run: npm test
 
@@ -19,7 +19,7 @@ jobs:
   action:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - uses: ./
       with:
         token: TEST_TOKEN
