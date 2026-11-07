@@ -1,5 +1,5 @@
 // make creates our URL fragments and rules for rewriting URLs for auth
-function make(token, server="github.com", prefix="") {
+export function make(token, server="github.com", prefix="") {
     prefix = prefix.replace(/^\/+/, '')
     return {
         https_url: `https://${server}/${prefix}`,
@@ -9,4 +9,3 @@ function make(token, server="github.com", prefix="") {
         auth_rule: `url.https://${token}:x-oauth-basic@${server}/${prefix}.insteadof`,
     }
 }
-exports.make = make

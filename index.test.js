@@ -1,5 +1,8 @@
-const process = require('process')
-const { gitConfigList, runIndex, runRemove } = require('./testutil')
+import process from 'node:process'
+import os from 'node:os'
+import fs from 'node:fs'
+import path from 'node:path'
+import { gitConfigList, runIndex } from './testutil.js'
 
 // These need to be sync'd in cleanup.test.js
 const TOKEN = "example-token"
@@ -19,9 +22,6 @@ describe('run', () => {
     })
 
     it("works when we have a token", () => {
-        const os = require('os')
-        const fs = require('fs')
-        const path = require('path')
         // @actions/core >= 1.10 writes save-state entries to the GITHUB_STATE file
         const stateFile = path.join(os.tmpdir(), `test_state_git_config_section_${process.pid}`)
         fs.writeFileSync(stateFile, '')
