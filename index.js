@@ -1,7 +1,7 @@
-const core = require('@actions/core')
-const exec = require('@actions/exec')
-const github = require('@actions/github')
-const rules = require('./rules')
+import * as core from '@actions/core'
+import * as exec from '@actions/exec'
+import * as github from '@actions/github'
+import * as rules from './rules.js'
 
 // action main method
 async function run() {

@@ -1,6 +1,6 @@
-const rules = require('./rules')
-const process = require('process')
-const { gitConfigList, runIndex, runRemove } = require('./testutil')
+import * as rules from './rules.js'
+import process from 'node:process'
+import { gitConfigList, runIndex, runRemove } from './testutil.js'
 
 // These need to be sync'd in index.test.js
 const TOKEN = "example-token"

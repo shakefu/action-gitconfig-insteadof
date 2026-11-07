@@ -1,4 +1,4 @@
-const rules = require('./rules')
+import * as rules from './rules.js'
 
 const TOKEN = "example-token"
 const SERVER = "example.com"
