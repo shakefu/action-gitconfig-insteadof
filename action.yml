@@ -1,5 +1,5 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'gitconfig insteadOf'
+description: 'Rewrite GitHub URLs in the global git config to use token authentication'
 inputs:
   token:
     description: GitHub personal access token
