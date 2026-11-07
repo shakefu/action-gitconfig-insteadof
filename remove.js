@@ -1,5 +1,5 @@
-const core = require('@actions/core')
-const exec = require('@actions/exec')
+import * as core from '@actions/core'
+import * as exec from '@actions/exec'
 
 // This removes the entire section of the git config with our URL rewrites
 async function run() {
